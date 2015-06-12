@@ -8,53 +8,48 @@
   <script src="//maxcdn.bootstrap.cdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <!--Navbar starts here -->
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!--nav container -->
+ <div class="container-fluid">
+  <div class="navbar-header">
+   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   </button>
+ <div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+   <%= form_tag("/products", method: "get", class: 'navbar-collapse', id: 'search-form') do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+   <% end %>
+   <li><%= link_to "home", root_path %></li>
+   <li><%= link_to "about", static_pages_about_path %></li>
+   <li><%= link_to "contact", static_pages_contact_path %></li>
+   </ul>
+    </div> <!--end of navbar collapse-->
+   </div> <!--end of navbar-header-->
+  </div> <!--end of container-fluid-->
+ </div> <!--end ofnavbar-inverse-->
+<!--Navbar ends here -->  
+
 </head>
 <body>
 <%#<a href="#"><img src="/images/quality1.png" alt="Quality Lettering, Graphics & More logo"></a>%>
 <h1>Quality Lettering, Graphics &#38; More<h1>
 <h2>Where Great Ideas Come to Life!</h2>
-<body data-spy="scroll" data-target=".navbar">
-    <!--navbar starts here -->
-
-
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-
-
-            <div class="navbar-header">
-                <button class="navbar-toggle" data-target=".navbar-collapse"
-                data-toggle="collapse" type="button"><span class=
-                "sr-only">Toggle navigation</span> <span class=
-                "icon-bar"></span> <span class="icon-bar"></span> <span class=
-                "icon-bar"></span></button>
-            </div>
-
-
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                    <a href="#">Home</a>
-                    </li>
-
-
-                    <li>
-                        <a href="../about">About</a>
-                    </li>
-
-
-                    <li>
-                        <a href="../contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-  
-            <!-- end navbar-collapse -->
-
-        </div>
-        <!--end nav container -->
-    </nav>
 <%= yield %>
 
+<footer class="container-fluid">
+	<div class="navbar-inverse">
+		<div class="container">
+
+		</div>
+	</div>
+</footer>
 </body>
 </html>
